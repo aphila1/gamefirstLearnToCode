@@ -1,0 +1,125 @@
+.studio-game-card {
+  background: #262b011c;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.studio-game-card:hover:not(.coming-soon) {
+  transform: translateY(-5px);
+  border-color: #6366f1;
+  box-shadow: 0 10px 20px rgba(234, 238, 4, 0.315);
+}
+
+.card-thumbnail {
+  font-size: 4rem;
+  background: #262b011c;
+  text-align: center;
+  overflow: hidden;
+}
+.thumbnail-image {
+  width: 340px;
+  height: 80px;
+  box-shadow:
+    0 10px 20px rgba(99, 102, 241, 0.25),
+    0 0 15px rgba(99, 102, 241, 0.4),
+    0 0 30px rgba(99, 102, 241, 0.2);
+  object-fit: cover; /* Ensures the image fills the square without squishing */
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+.studio-game-card:hover .thumbnail-image {
+  transform: scale(1.2);
+}
+
+.card-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.card-header-row h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.difficulty-badge {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.difficulty-badge.easy {
+  background: #065f46;
+  color: #34d399;
+}
+.difficulty-badge.medium {
+  background: #92400e;
+  color: #fbbf24;
+}
+.difficulty-badge.hard {
+  background: #f32a2a;
+  color: #181204;
+}
+
+.card-content p {
+  color: #9b9b9c;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0 0 15px 0;
+  flex-grow: 1;
+}
+
+.card-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.tag-badge {
+  font-size: 0.8rem;
+  color: #e9e9e9;
+  background: rgba(99, 102, 241, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.launch-btn {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.launch-btn:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.studio-game-card.coming-soon {
+  opacity: 0.6;
+}
+
+.coming-soon .launch-btn {
+  background: #475569;
+  cursor: not-allowed;
+}
