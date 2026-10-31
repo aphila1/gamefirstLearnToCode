@@ -1,0 +1,4 @@
+[build]
+  base = "gamefirst/tictactoe"
+  command = "npm ci --include=dev && npm run build"
+  publish = "dist"
