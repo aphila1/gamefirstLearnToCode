@@ -10,13 +10,7 @@ import AuthModal from "./components/AuthModal";
 import "./App.css";
 import { useStudio } from "./context/StudioContext";
 
-type ScreenView =
-  | "hub"
-  | "coding"
-  | "profile"
-  | "studio"
-  | "uber"
-  | "services";
+type ScreenView = "hub" | "coding" | "profile" | "studio" | "uber" | "services";
 type GameStage = "menu" | "active";
 
 interface ScoreState {
@@ -50,10 +44,7 @@ export default function App() {
   // Navigation Dropdown UI States
   const [projectsOpen, setProjectsOpen] = useState<boolean>(false);
   const [servicesOpen, setServicesOpen] = useState<boolean>(false);
-  const [infoGameKey, setInfoGameKey] = useState<
-    | "coding"
-    | null
-  >(null);
+  const [infoGameKey, setInfoGameKey] = useState<"coding" | null>(null);
 
   // Reference hooks to track menu borders for click-away detection
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -116,15 +107,11 @@ export default function App() {
       </div>
     );
   }
-  function handleGameOutcome(outcome: "X" | "O" | "draw") {
-    
-  }
+  function handleGameOutcome(outcome: "X" | "O" | "draw") {}
 
   // Handles initializing matches with custom AI scaling and token fee balances
   const { updateTokens } = useStudio();
-  async function startMatch(
-    
-  ) {
+  async function startMatch() {
     setIsAiMode(vsAi);
 
     if (vsAi) {
@@ -328,15 +315,6 @@ export default function App() {
 
         {currentScreen === "uber" && (
           <UberAppWrapper onBackToHub={() => setCurrentScreen("hub")} />
-        )}
-
-        {currentScreen === "Crazyeight" && (
-          <div className="mounted-game-canvas">
-            <CrazyEight
-              onExit={() => setCurrentScreen("hub")}
-              onTriggerRules={() => setInfoGameKey("Crazyeight")}
-            />
-          </div>
         )}
 
         {currentScreen === "coding" && (
